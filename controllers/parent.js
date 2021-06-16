@@ -2,18 +2,25 @@ const express = require('express')
 const router = express.Router()
 const Kid = require('../models/kid-model')
 const Assignment = require('../models/assignment-model')
-const { error } = require('console')
 
 router.get('/', (req, res) => {
-    Kid.find({})
-    .populate('task')
-    .then(kids => res.json(kids))
-    .catch(error)
+    res.send(`You've hit the home route!`)
 })
 
-router.get('/:id', (req, res) =>{
-    Kid.findById(req.params.id)
+router.get('/task', (req, res) => {
+    Kid.find({})
     .populate('task')
+    .then(kids => {
+        console.log(kids)
+        res.render('index', { kids })
+    })
+
+})
+
+router.get('/task/:id', (req, res) =>{
+   const routeID = req.params.id
+    Kid.findById(routeID)
+    .populate({path:'task', select: ['homework', 'clean']})
     .then(kids => res.json(kids))
 })
 

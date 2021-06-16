@@ -7,9 +7,7 @@ Kid.deleteMany({})
       Assignment.deleteMany({})
 })
 .then(() => {
-    return Assignment.create(
-        {title: 'Empty', complete: false}
-    )
+    return Assignment.create({homework: 'math assignment', clean: 'bathroom', schedule: 'none'})
     })
     .then( (assignment) => {
         return seedData.map( (kid) => {
@@ -25,5 +23,7 @@ Kid.deleteMany({})
     .finally(() => {
     process.exit();
   });
+
+
 
 

@@ -2,12 +2,17 @@ const mongoose = require('../db/connection')
 
 const AssignmentSchema = new mongoose.Schema(
     {
-        title: {
-            type: String
+        homework: {
+            type: String, 
+           
         },
-        complete: {
-            type: Boolean,
-            default: false,
+        clean: {
+            type: String,
+           
+        },
+        schedule: {
+            type: String,
+           
         },
     },
    

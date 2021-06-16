@@ -1,0 +1,15 @@
+<header class="d-flex justify-content-between align-items-center">
+  <h1>Task List</h1>
+  <a href="/task" class="btn btn-primary">New Task</a>
+</header>
+<ul class="list-group">
+  {{#each kids}}
+  <li class="list-group-item d-flex justify-content-between">
+    <div>{{this.name}}</div>
+    <div><h5>Homework:</h5>{{this.task.homework}}</div>
+     <div><h6>Chore:</h6>{{this.task.clean}}</div>
+      <div><h6>Activities Today:</h6>{{this.task.schedule}}</div>
+      
+  </li>
+  {{/each}}
+</ul>

@@ -9,7 +9,7 @@ const KidSchema = new mongoose.Schema(
         task: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Assignment'
-        }
+        },
        
     },
    
