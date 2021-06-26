@@ -4,7 +4,7 @@ const Kid = require('../models/kid-model')
 const Assignment = require('../models/assignment-model')
 const multer = require('multer')
 // const upload = multer({dest: 'uploads/'})
-// const upload = require('../multer')
+const upload = require('../multer')
 
 
 router.get('/', (req, res) => {
@@ -38,12 +38,17 @@ router.get('/task/:id', (req, res) =>{
 
 
 
-router.post('/task', (req, res) => {
+router.post('/task', upload.single('img'),(req, res) => {
     Assignment.create({homework:[], chores: [], schedule: []})
     .then(assignments => {
     Kid.create(
         {
             name: req.body.name,
+            img: {
+                data: req.file.buffer,
+                contentType: req.file.mimetype,
+            
+            },
             task: assignments._id
         }
     )
@@ -56,6 +61,16 @@ router.post('/task', (req, res) => {
 
 
 })
+
+router.get("/task/:id/img", async (req, res, next) => {
+    try {
+      const kid = await Kid.findById(req.params.id).populate('task');
+      res.set("Content-Type", kid.img.contentType);
+      res.send(kid.img.data);
+    } catch (err) {
+      next(err);
+    }
+  });
 
 router.get('/task/:id/edit', (req, res) => {
     const routeID = req.params.id

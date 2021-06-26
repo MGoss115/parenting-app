@@ -1,21 +1,29 @@
 <h1><span class="badge bg-secondary">Add New</span></h1>
-<form action="/task" method="POST">
+<form action="/task" method="POST" enctype="multipart/form-data">
 <div class="form-group">
     <label for="name">Enter Child's Name</label>
     <input type="text" id="name" name="name" class="form-control"> 
 </div>
+<div>
+ 
+  <label for="Select Image">Select Image</label>
+  <input type="file" class="form-control" name="img" accept="image/*">
+  <input type="submit" class=" btn btn-outline-primary">
+  <a href="/task" class="btn btn-outline-secondary">Go Back</a>
+ 
+</div>
+
 {{!-- <div class="form-group">
   <label for="Select Image">Select Image</label>
-  <input type="file" class="form-control" name="img">
-</div>
-<div class="form-group">
-  <button class="btn btn-block btn-danger">Upload Image</button>
+  <input type="file" class="form-control" name="img" accept="image/*">
+  <input type="submit" value="Upload Photo">
 </div> --}}
+
 {{!-- <div>
     <label for="homework">Assignemt</label>
     <input class="form-control" type="text" id="task" name="homework"  value="Assignment" aria-label="readonly input example" readonly>
     <input type="text" id="task" name="homework" class="form-control">
 </div> --}}
-<input type="submit" class=" btn btn-outline-primary">
-<a href="/task" class="btn btn-outline-secondary">Go Back</a>
+{{!-- <input type="submit" class=" btn btn-outline-primary"> --}}
+{{!-- <a href="/task" class="btn btn-outline-secondary">Go Back</a> --}}
 </form>

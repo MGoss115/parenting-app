@@ -6,7 +6,9 @@
   {{#each kids}}
   <li class="list-group-item d-flex justify-content-between">
     <div>{{this.name}}</div>
-     <img src="{{this.url}}" alt="">
+   <div>
+     <img src="/task/{{this.id}}/img" alt="">
+     </div>
    <div class="links">
       <a href="/task/{{this.id}}" class="btn btn-info">View</a>
       <a href="/task/{{this.id}}/edit" class="btn btn-primary">Edit</a>

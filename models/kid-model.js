@@ -7,7 +7,8 @@ const KidSchema = new mongoose.Schema(
             required: true,
         },
         img: {
-            type: {type: String},
+           data: Buffer, 
+           contentType: String,
         },
         task: {
             type: mongoose.Schema.Types.ObjectId,
