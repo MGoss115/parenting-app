@@ -3,15 +3,15 @@ const mongoose = require('../db/connection')
 const AssignmentSchema = new mongoose.Schema(
     {
         homework: {
-            type: String, 
+            type: [String], 
            
         },
         clean: {
-            type: String,
+            type: [String],
            
         },
         schedule: {
-            type: String,
+            type: [String],
            
         },
     },

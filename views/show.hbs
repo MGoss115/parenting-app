@@ -1,0 +1,12 @@
+<h1><span class="badge bg-secondary">{{kids.name}}'s Task List</span></h1> 
+<ul class="list-group">
+<li class="list-group-item d-flex justify-content-between">
+    <div><h5>Homework</h5>{{ kids.task.homework }}</div>
+    <div><h5>Chores</h5>{{kids.task.clean}}</div>
+    <div><h5>Activities</h5>{{kids.task.schedule}}</div>
+  </li>
+</ul>
+<div class="d-grid gap-2 .col-6 .mx-auto">
+    <a href="/task" button class="btn btn-outline-primary" type="button">Home</a>
+
+</div>

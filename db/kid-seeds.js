@@ -7,7 +7,7 @@ Kid.deleteMany({})
       Assignment.deleteMany({})
 })
 .then(() => {
-    return Assignment.create({homework: 'math assignment', clean: 'bathroom', schedule: 'none'})
+    return Assignment.create({homework: ['math assignment', 'English'], clean: ['bathroom', 'bedroom'], schedule: 'open'})
     })
     .then( (assignment) => {
         return seedData.map( (kid) => {

@@ -6,6 +6,9 @@ const KidSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        img: {
+            type: {type: String},
+        },
         task: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Assignment'
