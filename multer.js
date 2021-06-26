@@ -1,14 +1,17 @@
-const multer =require = require('multer')
+// const multer =require = require('multer')
 
-const storage = multer.diskStorage({
-    destination : (req, file, cb) => {
-        cb(null,'uploads')
-    },
-    filename : (req, file, cb) => {
-        const ext = file.originalname.substr(file.originalname.lastIndexOf('.'))
-        cb(null, file.fieldname + '-' + Date.now() + ext)
-    }
-})
+// const Storage = multer.diskStorage({
+//     destination : (req, file, cb) => {
+//         cb(null,'./public/images')
+//     },
+//     filename : (req, file, cb) => {
+//         const ext = file.originalname.substr(file.originalname.lastIndexOf('.'))
+//         cb(null, file.fieldname + "_" + Date.now() + file.originalname)
+//     }
+// })
 
-store = multer({storage:storage})
-module.exports = store
+// const upload = multer({
+//     storage: Storage,
+// }).single('image')
+
+// module.exports = upload

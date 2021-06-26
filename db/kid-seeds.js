@@ -14,7 +14,6 @@ Kid.deleteMany({})
             return ({...kid, task: assignment._id})
     })
     })
-  
     .then( (kids) => {
         return Kid.insertMany(kids)
     })

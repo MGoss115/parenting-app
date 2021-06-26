@@ -1,10 +1,20 @@
 <h2>Update Child:</h2>
 
-<form action="/task/{{this.id}}/?_method=put" method="POST">
+<form action="/task/{{kids._id}}?_method=put" method="POST">
   <div class="form-group">
+     <label for="name">Update Name:</label>
+    <input type="text" id="name" name="name" class="form-control" value="{{kids.name}}">
+
     <label for="homework">Homework:</label>
-    <input type="text" id="task" name="homework" class="form-control" value="{{this.homework}}">
+    <input type="text" id="task" name="homework" class="form-control" value="{{kids.task.homework}}">
+
+    <label for="clean">Chores:</label>
+    <input type="text" id="clean" name="clean" class="form-control" value="{{kids.task.clean}}">
+
+    <label for="schedule">Activities:</label>
+    <input type="text" id="schedule" name="schedule" class="form-control" value="{{kids.task.schedule}}">
   </div>
+ 
 
 
   <input type="submit" value="Update Child" class="btn btn-primary" />
