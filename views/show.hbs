@@ -1,9 +1,18 @@
 <h1><span class="badge bg-secondary">{{kids.name}}'s Task List</span></h1> 
 <ul class="list-group text-wrap">
-<li class="list-group-item d-flex justify-content-between">
-    <div><h5>Homework</h5>{{ kids.task.homework }}</div>
-    <div><h5>Chores</h5>{{kids.task.clean}}</div>
-    <div><h5>Activities</h5>{{kids.task.schedule}}</div>
+<li class="list-group-item d-flex justify-content-between" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;background-color: thistle; font-size: 20px; color:salmon">
+    <div>
+    <h5>Homework</h5>
+    <div style="color:slategrey;">{{ kids.task.homework }}</div>
+    </div>
+      <div>
+    <h5>Chores</h5>
+    <div style="color:slategrey;">{{ kids.task.clean }}</div>
+    </div>
+      <div>
+    <h5>Activities</h5>
+    <div style="color:slategrey;">{{ kids.task.schedule }}</div>
+    </div>
      <img src="/task/{{this.id}}/img" alt="">
   </li>
 </ul>
