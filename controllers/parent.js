@@ -3,7 +3,6 @@ const router = express.Router()
 const Kid = require('../models/kid-model')
 const Assignment = require('../models/assignment-model')
 const multer = require('multer')
-// const upload = multer({dest: 'uploads/'})
 const upload = require('../multer')
 
 
@@ -89,12 +88,11 @@ router.put('/task/:id', (req, res) => {
         { _id: routeId },
         {
             name: req.body.name,
+            
         }, 
         { new: true }
     )
     .then(kid => {
-        k = kid
-        // console.log(kid,1)
         Assignment.findOneAndUpdate(
         { _id: kid.task},
         {
@@ -104,8 +102,6 @@ router.put('/task/:id', (req, res) => {
         }, 
         { new: true }
     ).then(assignment => { 
-        let _kid = { ...kid,  task: assignment }
-        console.log(kid)
         res.render('show', {kids: { name: kid.name, _id: kid._id,  task: assignment }}) })  
     })
     .catch(console.error)

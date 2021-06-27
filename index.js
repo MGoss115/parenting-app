@@ -1,6 +1,5 @@
 const express = require('express')
 const multer = require('multer')
-const bodyParser = require('body-parser')
 const cors = require('cors')
 const methodOveride = require('method-override')
 const parentController = require('./controllers/parent')
