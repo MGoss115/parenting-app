@@ -6,12 +6,12 @@ const multer = require('multer')
 const upload = require('../multer')
 
 
-// router.get('/', (req, res) => {
-//     res.send(`You've hit the home route!`)
-// })
-
-
 router.get('/', (req, res) => {
+    res.send(`You've hit the home route!`)
+})
+
+
+router.get('/task', (req, res) => {
     Kid.find({})
     .populate('task')
     .then(kids => {
