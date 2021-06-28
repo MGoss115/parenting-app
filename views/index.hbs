@@ -4,10 +4,10 @@
 </header>
  <ul class="row row-cols-2">
   {{#each kids}}
-  <li class="list-group-item d-flex justify-content-between" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;background-color: thistle; font-size: 20px; color:salmon">
+  <li class="list-group-item d-flex flex-wrap justify-content-between" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;background-color: thistle; font-size: 20px; color:salmon; margin-bottom: 30px; border-radius: 50px;">
     <div>{{this.name}} <br></br>
   
-      <img class="w-25 p-3 rounded" src="/task/{{this.id}}/img" alt="">
+      <img class="w-50 p-1 rounded-circle" src="/task/{{this.id}}/img" alt="">
     
     
     </div> 
@@ -19,7 +19,6 @@
        <form action="/task/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
         <input type="submit" value="Delete" class="btn btn-danger btn-outline-secondary rounded-pill" style="color:salmon;" />
       </form>
-
    </div>
   
       

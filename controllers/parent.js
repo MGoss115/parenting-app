@@ -44,7 +44,7 @@ router.post('/task', upload.single('img'),(req, res) => {
         {
             name: req.body.name,
             img: {
-                data: req.file.buffer,
+                data: req.file.buffer ?  req.file.buffer :  " ",
                 contentType: req.file.mimetype,
             
             },
@@ -117,6 +117,7 @@ router.delete('/task/:id', (req, res) => {
     })
     .catch(console.error)
 })
+
    
 
 
