@@ -11,11 +11,12 @@ app.set('view engine', 'hbs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())
+app.set("port", process.env.PORT || 3000);
 app.use(parentController)
 
 
 
-app.listen(3000, () => {
-    console.log('Magic running on port 3000')
+app.listen(app.get("port"), () => {
+    console.log(`listening on ${app.get("port")}`)
 })
 
