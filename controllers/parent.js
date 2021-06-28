@@ -44,7 +44,7 @@ router.post('/task', upload.single('img'),(req, res) => {
         {
             name: req.body.name,
             img: {
-                data: req.file.buffer ?  req.file.buffer :  " ",
+                data: req.file.buffer,
                 contentType: req.file.mimetype,
             
             },
@@ -89,7 +89,8 @@ router.put('/task/:id', (req, res) => {
         {
             name: req.body.name,
             
-        }, 
+        },
+      
         { new: true }
     )
     .then(kid => {
@@ -102,10 +103,11 @@ router.put('/task/:id', (req, res) => {
         }, 
         { new: true }
     ).then(assignment => { 
-        res.render('show', {kids: { name: kid.name, _id: kid._id,  task: assignment }}) })  
+        res.render('show', {kids: { name: kid.name, img: kid.img, _id: kid._id,  task: assignment }}) })  
     })
     .catch(console.error)
 })
+
 
 router.delete('/task/:id', (req, res) => {
     const id = req.params.id

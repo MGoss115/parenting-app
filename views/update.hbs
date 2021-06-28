@@ -1,9 +1,12 @@
-<h1><span class="badge bg-secondary">Add Image</span></h1>
-<form action="/" method="POST" enctype="multipart/form-data">
-<div class="form-group">
+<h2>Update Child:</h2>
+
+<form action="/task/{{kids._id}}?_method=put" method="POST" enctype="multipart/form-data">
+  <div>
+ 
   <label for="Select Image">Select Image</label>
-  <input type="file" class="form-control" name="img">
+  <input type="file" class="form-control" name="img" accept="image/*">
+  <input type="submit" class=" btn btn-outline-primary">
+  <a href="/task" class="btn btn-outline-secondary">Go Back</a>
+ 
 </div>
-<div class="form-group">
-  <button class="btn btn-block btn-danger">Upload Image</button>
-</div>
+</form>
