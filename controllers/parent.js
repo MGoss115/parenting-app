@@ -11,7 +11,7 @@ const upload = require('../multer')
 // })
 
 
-router.get('/task', (req, res) => {
+router.get('/', (req, res) => {
     Kid.find({})
     .populate('task')
     .then(kids => {
