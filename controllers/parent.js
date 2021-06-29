@@ -103,9 +103,64 @@ router.put('/task/:id', (req, res) => {
         }, 
         { new: true }
     ).then(assignment => { 
-        res.render('show', {kids: { name: kid.name, img: kid.img, _id: kid._id,  task: assignment }}) })  
+        res.render('show', {kids: { name: kid.name, _id: kid._id,  task: assignment }}) })  
     })
     .catch(console.error)
+})
+
+router.get("/task/:id/img", async (req, res, next) => {
+    try {
+      const kid = await Kid.findById(req.params.id).populate('task');
+      res.set("Content-Type", kid.img.contentType);
+      res.send(kid.img.data);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+router.get('/task/:id/edit/image',upload.single('img'), (req, res) => {
+    const routeID = req.params.id
+    Kid.findById(routeID)
+    .populate('task')
+    .then(kids => {
+        console.log(kids)
+        res.render('update', { kids })
+    })
+})
+
+router.put('/task/:id/image',upload.single('img'), (req, res) => {
+    const routeId = req.params.id
+    console.log(req.file)
+   
+   
+        Kid.findOneAndUpdate(
+           
+            { _id: routeId },
+           
+
+            {
+                img: {
+                    data:  req.file.buffer,
+                    contentType: req.file.mimetype, 
+                   
+                }
+            },
+          
+            { new: true }
+        )
+        .then(kid => {
+            Assignment.findOneAndUpdate(
+            { _id: kid.task},
+          
+            { new: true }
+        ).then(assignment => { 
+            res.render('show', {kids: { name: kid.name, img: kid.img.data, _id: kid._id,  task: assignment }}) })  
+        })
+        .catch(console.error)
+       
+
+    
+     
 })
 
 
