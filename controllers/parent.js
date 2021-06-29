@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
     res.send(`You've hit the home route!`)
 })
 
-
 router.get('/task', (req, res) => {
     Kid.find({})
     .populate('task')
@@ -18,7 +17,6 @@ router.get('/task', (req, res) => {
         console.log(kids)
         res.render('index', { kids })
     })
-
 })
 
 router.get('/task/new', (req, res) => {
@@ -34,8 +32,6 @@ router.get('/task/:id', (req, res) =>{
          res.render('show', { kids })
      })
 })
-
-
 
 router.post('/task', upload.single('img'),(req, res) => {
     Assignment.create({homework:[], chores: [], schedule: []})
@@ -56,9 +52,7 @@ router.post('/task', upload.single('img'),(req, res) => {
         res.redirect('/task')
     })
 
-})
-
-
+    })
 })
 
 router.get("/task/:id/img", async (req, res, next) => {
@@ -83,14 +77,11 @@ router.get('/task/:id/edit', (req, res) => {
 
 router.put('/task/:id', (req, res) => {
     const routeId = req.params.id
-    let k
      Kid.findOneAndUpdate(
         { _id: routeId },
         {
             name: req.body.name,
-            
         },
-      
         { new: true }
     )
     .then(kid => {
@@ -108,16 +99,6 @@ router.put('/task/:id', (req, res) => {
     .catch(console.error)
 })
 
-router.get("/task/:id/img", async (req, res, next) => {
-    try {
-      const kid = await Kid.findById(req.params.id).populate('task');
-      res.set("Content-Type", kid.img.contentType);
-      res.send(kid.img.data);
-    } catch (err) {
-      next(err);
-    }
-  });
-
 router.get('/task/:id/edit/image',upload.single('img'), (req, res) => {
     const routeID = req.params.id
     Kid.findById(routeID)
@@ -130,17 +111,12 @@ router.get('/task/:id/edit/image',upload.single('img'), (req, res) => {
 
 router.put('/task/:id/image',upload.single('img'), (req, res) => {
     const routeId = req.params.id
-    console.log(req.file)
-   
-   
-        Kid.findOneAndUpdate(
+    Kid.findOneAndUpdate(
            
             { _id: routeId },
-           
-
             {
                 img: {
-                    data:  req.file.buffer,
+                    data: req.file.buffer,
                     contentType: req.file.mimetype, 
                    
                 }
@@ -157,12 +133,7 @@ router.put('/task/:id/image',upload.single('img'), (req, res) => {
             res.render('show', {kids: { name: kid.name, img: kid.img.data, _id: kid._id,  task: assignment }}) })  
         })
         .catch(console.error)
-       
-
-    
-     
 })
-
 
 router.delete('/task/:id', (req, res) => {
     const id = req.params.id
@@ -174,9 +145,5 @@ router.delete('/task/:id', (req, res) => {
     })
     .catch(console.error)
 })
-
-   
-
-
 
 module.exports = router
