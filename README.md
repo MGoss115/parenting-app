@@ -36,6 +36,6 @@ Interactive app to help parents manage their children schedule. As a parent it's
 ## Wireframes
 **************
 ![Landing Page1](/images/WireFramepj2.jpg)
-![Landing Page1](/images/WireFramepjs.jpg)
+![Landing Page1](/images/WireFrame2pjs.jpg)
 ![Landing Page1](/images/WireFrame3pj2.jpg)
 
