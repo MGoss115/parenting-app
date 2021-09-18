@@ -12,6 +12,7 @@ Interactive app to help parents manage their children schedule. As a parent it's
 *************
 - Javascript 
 - Bootstrap CSS 
+- HTML
 - Express 
 - Express Handlebars
 - MondgoDB
